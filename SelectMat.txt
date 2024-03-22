@@ -1,0 +1,7 @@
+-- Wording and coefficient (expressed as a percentage) of each subject
+
+select m.wording, concat(round(m.coef * 100), '%') as percentage from Matter as m;
+
+-- Sum of coefficients of all subject
+
+select round(sum(m.coef), 2) as "sum of all matters coeficinet" from Matter as m;

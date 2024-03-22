@@ -1,0 +1,145 @@
+-- Total number of tests
+
+select 
+    count(*) as "Number of tests" 
+from 
+    Test
+
+-- List of score, specifying for each the name and first name of the student who obtained it
+
+select 
+	s.name as "Name", s.firstname as "First Name", n.score as "Score"
+from 
+	Student as s, Notation as n 
+where 
+	n.Student_numstud = s.numstud
+
+-- List of score, specifying for each the name and first name of the student who obtained it and the wording of the matter concerned
+
+select 
+	s.name as "Name", s.firstname as "First Name", m.wording as "Question", n.score as "Score"
+from 
+	Student as s, Notation as n, Matter as m, Test as t
+where 
+	n.Student_numstud = s.numstud and
+    n.Test_numtest = t.numtest and
+    t.Matter_codemat = m.codemat
+
+-- List of score greater than or equal to 10
+
+select 
+    n.score as "Score" 
+from 
+    Notation as n 
+where 
+    n.score >= 10
+
+-- Last name and first name of the students who obtained at least a score equal to 20
+
+select 
+    s.name as "Name", s.firstname as "First Name", n.score as "Score" 
+from 
+    Notation as n, Student as s 
+where 
+    n.score >= 20 and 
+    n.Student_numstud = s.numstud
+
+-- Average scores for each student (indicate name and first name)
+
+select 
+	s.name as "Name", s.firstname as "First Name", round(avg(n.score), 2) as "Average Score" 
+from 
+	Notation as n, Student as s 
+where 
+    n.Student_numstud = s.numstud
+group by
+	s.numstud
+
+-- List of tests whose date is between January 1 and June 30, 2014
+
+select 
+    * 
+from 
+    Test as t 
+where 
+    t.testdate <= '2024-03-15' and 
+    t.testdate >= '2024-01-15'
+
+-- List of tests (number, date and place) including the matter of the subject
+
+select 
+    t.numtest as "Test Number", t.testdate as "Test Date", t.place as "Test Location", m.codemat as "Subject" 
+from 
+    Test as t, Matter as m 
+where 
+    t.Matter_codemat = m.codemat;
+
+-- Average scores for each student (indicate name and first name), ranked from best to worst
+
+select 
+	s.name as "Name", s.firstname as "First Name", round(avg(n.score), 2) as "Average Score" 
+from 
+	Notation as n, Student as s 
+where 
+    n.Student_numstud = s.numstud
+group by
+	s.numstud
+order by
+	round(avg(n.score), 2)
+
+-- Average scores for matter (indicate the wording) comprising more than one test
+
+select 
+	m.codemat as "Subject", m.wording as "Question", round(avg(n.score), 2) as "Subject average test score"
+from
+	(
+		select 
+			m.codemat as sub, count(m.codemat) as n_test
+		from 
+			Test as t, Matter as m
+		where
+			t.Matter_codemat = m.codemat
+		group by
+			m.codemat
+	) as mc,
+    Notation as n,
+    Matter as m,
+    Test as t
+where
+	n.Test_numtest = t.numtest and
+    t.Matter_codemat = m.codemat and
+    m.codemat = mc.sub and
+    mc.n_test >= 2
+group by
+	m.codemat
+
+-- Average of score obtained in the tests (indicate the number of the test) where less than 6 students were rated
+
+select
+	t.numtest as "Test number", tc.n_stud as "Number of students", round(avg(n.score), 2) as "Test average"
+from
+	(
+		select
+			t.numtest as t_num, count(s.numstud) as n_stud
+		from
+			Student as s,
+			Notation as n,
+			Test as t
+		where
+			t.numtest = n.Test_numtest and
+            s.numstud = n.Student_numstud
+		group by
+			t.numtest
+	) as tc,
+    Test as t,
+    Notation as n
+where
+	t.numtest = n.Test_numtest and
+    tc.t_num = n.Test_numtest and
+    tc.t_num = t.numtest and
+    tc.n_stud <= 6
+group by
+	tc.t_num
+
+    
+	

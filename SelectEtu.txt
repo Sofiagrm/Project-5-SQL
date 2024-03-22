@@ -1,0 +1,28 @@
+-- List of all students
+
+select * from Student
+
+-- List of all students, sorted in reverse alphabetical order
+
+-- by first name
+select * from Student as s order by s.firstname DESC
+-- by name
+select * from Student as s order by s.name DESC
+
+-- Last name and first name of students domiciled in Lyon
+
+select s.name, s.firstname from Student as s where s.city = 'Lyon'
+
+-- Last name, first name and city of students whose city contains the string « LL »
+-- including situation where the name of the city also starts with an l and it's on capital letter
+
+select 
+    s.name, s.firstname, s.city 
+from 
+    Student as s 
+where 
+    (s.city like '%ll%' or s.city like '%Ll%' or s.city like '%LL%')
+
+-- First name of students with Dupont, Durand or Martin names
+
+select s.firstname from Student as s where s.name IN ('Dupont', 'Durand', 'Martin');

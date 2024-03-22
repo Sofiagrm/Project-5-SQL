@@ -1,0 +1,72 @@
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Dupond', 'Anne', '2009-11-05', 'Rue Claude Bernard', '75005', 'Paris');
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Durant', 'Louis', '2008-01-11', 'Rue Claude Bernard', '75005', 'Paris');
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Martin', 'Charles', '2008-05-12', 'Rue Solférino', '40210', 'Lille');
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Bernard', 'Loic', '2008-07-03', 'Voie La Canebiere', '13201', 'Marseille');
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Dubois', 'Michelle', '2009-05-23', 'Rue Solférino', '40210', 'Lille');
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Aubert', 'Maria', '2008-04-18', 'Voie La Canebiere', '13201', 'Marseille');
+INSERT INTO `mydb`.`Student` (`name`, `firstname`, `dateofbirth`, `street`, `postalcod`, `city`) VALUES ('Fournier', 'Sophie', '2008-06-07', 'Rue Claude Bernard', '75005', 'Paris');
+
+UPDATE `mydb`.`Student` SET `city` = 'Lyon' WHERE (`numstud` = '7');
+UPDATE `mydb`.`Student` SET `city` = 'Lyon' WHERE (`numstud` = '2');
+UPDATE `mydb`.`Student` SET `city` = 'Lyon' WHERE (`numstud` = '1');
+UPDATE `mydb`.`Student` SET `name` = 'Durand' WHERE (`numstud` = '2');
+UPDATE `mydb`.`Student` SET `name` = 'Dupont' WHERE (`numstud` = '1');
+
+
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('HTML', 'What does HTML stands for?', '0.6');
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('Javascript', 'Are data types strong on Javascript?', '1');
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('Css', 'What does Css stands for?', '0.8');
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('JSON', 'What does Css stands for?', '.3');
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('XML', 'What does Css stands for?', '0.5');
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('Angular', 'What design pattern does Angular use?', '1.5');
+INSERT INTO `mydb`.`Matter` (`codemat`, `wording`, `coef`) VALUES ('Java', 'Is Java an Object Oriented Programming Language?', '1.5');
+
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`) VALUES("2024-01-05","Paris","HTML");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-01-08","Paris","Javascript");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-01-23","Paris","Css");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-02-15","Paris","Css");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-01-11","Paris","HTML");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-03-05","Paris","Javascript");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-03-12","Paris","HTML");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-02-19","Paris","Javascript");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES("2024-02-12","Paris","Angular");
+INSERT INTO `mydb`.`Test` (`testdate`,`place`,`Matter_codemat`)VALUES('2024-03-16','Paris','Angular');
+
+
+
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (1,1,7.5);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (2,1,9.4);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (3,1,10.4);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (4,1,16.3);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (5,1,20.0);
+
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (2,2,5.3);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (3,2,6.8);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (4,2,4.2);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (5,2,13.7);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (6,2,17.3);
+
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (3,6,9.1);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (4,6,2.8);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (5,6,12.2);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (6,6,15.6);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (7,6,20.0);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (1,6,12.6);
+
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (4,4,3.6);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (5,4,16.9);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (6,4,14.5);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (7,4,11.8);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (1,4,18.0); 
+
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (6,9,8.7);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (5,9,6.1);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (4,9,11.9);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (3,9,10.6);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (2,9,15.2);
+
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (3,10,7.9);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (4,10,8.3);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (5,10,13.4);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (6,10,12.7);
+INSERT INTO `mydb`.`Notation` (`Student_numstud`,`Test_numtest`,`score`) VALUES (7,10,11.5);
